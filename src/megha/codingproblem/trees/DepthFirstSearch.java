@@ -4,6 +4,9 @@ import java.util.Stack;
 
 /**
  * Depth first search implementation
+ * 
+ * Time complexity - O(n)
+ * Space complexity - Best/Average case O(1) and worst case O(n)
  * @author megha krishnamurthy
  *
  */

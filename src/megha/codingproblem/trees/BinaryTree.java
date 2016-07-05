@@ -8,7 +8,7 @@ package megha.codingproblem.trees;
 public class BinaryTree {
 	
 	/**
-	 * Utility method to create a binary tree
+	 * Utility method to populate data into a binary tree
 	 * @return
 	 */
 	public Node populateBinaryTree() {
