@@ -66,16 +66,58 @@ public class TwoSum {
 		return uniquePairs;
 	}
 	
-	public static void main(String args[]) {
-		int[] firstArray = {2,5,11,1,7,6,9};
-		TwoSum twoSum = new TwoSum();
-		int[] result = twoSum.findPairWithSum(firstArray, 6);
+	/**
+	 * Method to return all the unique pairs that sum up to the target value in a sorted array
+	 * Time complexity - O(n)
+	 * Space complexity - O(1)
+	 * 
+	 * @param array
+	 * @param target
+	 * @return
+	 */
+	public Set<Pair> findPairsWithSumSortedArray(int[] array, int target) {
+		if(array == null || array.length == 0) {
+			return null;
+		}
 		
+		int low = 0;
+		int high = array.length - 1;
+		Set<Pair> uniquePairs = new HashSet<Pair>();
+		
+		while (low < high) {
+			int currentSum = array[low] + array[high];
+			if(currentSum == target) {
+				Pair pair = new Pair(array[low], array[high]);
+				uniquePairs.add(pair);
+				low++;
+				high--;
+			} else if (currentSum < target) {
+				low++;
+			} else {
+				high--;
+			}
+		}
+		return uniquePairs;
+	}
+	
+	public static void main(String args[]) {
+		TwoSum twoSum = new TwoSum();
+		int target = 6;
+
+		System.out.println("The indices for the pair are:");
+		int[] firstArray = {2,5,11,1,7,6,9};
+		int[] result = twoSum.findPairWithSum(firstArray, target);
 		System.out.println(result[0] + "," + result[1]);
 		
+		System.out.println("The pairs in the unsorted array are:");
 		int[] secondArray = {2,-5,3,1,6,4,11,0,2,4};
-		Set<Pair> uniquePairs = twoSum.findPairsWithSum(secondArray, 6);
-		Pair.printPairs(uniquePairs);
+		Set<Pair> uniquePairs1 = twoSum.findPairsWithSum(secondArray, target);
+		Pair.printPairs(uniquePairs1);
+		
+		System.out.println("The pairs in the sorted array are:");
+		int[] sortedArray = {-5,0,1,2,2,3,4,4,6,11};
+		Set<Pair> uniquePairs2 = twoSum.findPairsWithSumSortedArray(sortedArray, target);
+		Pair.printPairs(uniquePairs2);
 	}
 }
 
