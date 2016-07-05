@@ -2,6 +2,7 @@ package megha.codingproblems.general;
 
 /**
  * Fibonacci program - Both iterative and recursive versions
+ * Fibonacci series - 1,1,2,3,5,8,13....
  * 
  * @author megha krishnamurthy
  *
