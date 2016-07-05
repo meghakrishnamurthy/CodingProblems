@@ -4,11 +4,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 /**
  * Class to perform a level order traversal or BFS on a binary tree
+ * Time complexity - O(n)
+ * Space complexity - Average of O(1) and worst case of O(n)
  * @author megha krishnamurthy
  *
  */
 public class LevelOrderTraversal {
-	public static void levelOrderTraversal(Node root) {
+	public void levelOrderTraversal(Node root) {
 		if(root == null) {
 			return;
 		}
@@ -29,16 +31,10 @@ public class LevelOrderTraversal {
 	}
 	
 	public static void main(String args[]) {
-		Node root = new Node(10);
-		root.left = new Node(6);
-		root.right = new Node(21);
-		root.left.left = new Node(1);
-		root.left.right = new Node(8);
-		root.right.left = new Node(13);
-		root.right.right = new Node(25);
-		root.right.left.left = new Node (12);
-		root.right.left.right = new Node(18);
+		BinaryTree tree = new BinaryTree();
+		Node root = tree.populateBinaryTree();
 		
-		levelOrderTraversal(root);
+		LevelOrderTraversal levelTraversal = new LevelOrderTraversal();
+		levelTraversal.levelOrderTraversal(root);
 	}
 }
