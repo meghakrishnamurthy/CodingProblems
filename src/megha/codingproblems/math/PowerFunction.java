@@ -2,8 +2,6 @@ package megha.codingproblems.math;
 
 /**
  * Program to implement the power(x,y) or x^y
- * Time complexity - O(log n)
- * Space complexity - O(1)
  * 
  * @author megha krishnamurthy
  *
@@ -12,6 +10,8 @@ public class PowerFunction {
 
 	/**
 	 * Method to compute x^y where both x and y are integers
+	 * Time complexity - O(log n)
+	 * Space complexity - O(1)
 	 * @param x
 	 * @param y
 	 * @return
@@ -29,7 +29,9 @@ public class PowerFunction {
 	}
 	
 	/**
-	 * Method to compute x^y where x is a double and y can be negative 
+	 * Method to compute x^y where x is a double and y can be negative
+	 * Time complexity - O(log n)
+	 * Space complexity - O(1) 
 	 * @param x
 	 * @param y
 	 * @return
@@ -50,6 +52,25 @@ public class PowerFunction {
 		}
 	}
 	
+	/**
+	 * Iterative implementation of x ^ y
+	 * Time complexity - O(n)
+	 * Space complexity - O(1)
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public double iterativePower(double x, int y) {
+		double result = 1.0;
+		for(int i=1; i<= Math.abs(y); i++) {
+			result = result * x;
+		}
+		if( y < 0) {
+			result = 1/result;
+		}
+		return result;
+	}
+	
 	public static void main(String args[]) {
 		PowerFunction powerFunc = new PowerFunction();
 		System.out.println(powerFunc.power(9,7));
@@ -57,5 +78,8 @@ public class PowerFunction {
 		System.out.println(powerFunc.power(5, 6));
 		
 		System.out.println(powerFunc.power(3.0, -2));
+		
+		System.out.println(powerFunc.iterativePower(3.0, -2));
+		System.out.println(powerFunc.iterativePower(3.0, 3));
 	}
 }
